@@ -49,7 +49,7 @@ Code for this is in `server/src/services/insights/prompt.ts` and `context.ts`.
 5. **Process the response:**
    - Strip any code fences, then `JSON.parse`.
    - Validate with the Zod schema (types, enums, lengths, array sizes).
-   - Retry **once** if the output is invalid or the upstream failure is transient. Timeouts, auth failures and rate limits are not retried.
+   - Retry **up to twice**, waiting 1 s and then 2 s, if the output is invalid or the upstream failure is transient (for example Gemini's occasional "model overloaded" 503). Timeouts, auth failures and rate limits are not retried.
    - **Post-process:** `requiresReview` is always taken from the deterministic rules, and any disagreement is logged.
 6. **Store and display.** The insight is saved with its provider, model, latency and context hash, then returned with 201. The React `InsightPanel` renders it, with loading, error and cached states.
 

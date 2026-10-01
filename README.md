@@ -1,5 +1,7 @@
 # AI-Powered Sustainability Insights Dashboard
 
+**Live demo:** https://sustainability-insights-dashboard-v.vercel.app. The first load may take a few seconds while the serverless backend starts.
+
 A full-stack prototype that turns supplier sustainability data (emissions, energy, water, recycled content, waste recovery, certifications) into plain-English insights for business users, using **Google Gemini** through a secured backend API.
 
 | Layer | Technology |

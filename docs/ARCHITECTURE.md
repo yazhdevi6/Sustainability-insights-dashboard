@@ -77,7 +77,7 @@ sequenceDiagram
     else generate
         S->>G: generateContent(system, data, JSON schema, temp 0.2, timeout)
         G-->>S: JSON text
-        S->>S: parse + Zod validate (retry once if invalid/transient)
+        S->>S: parse + Zod validate (retry with backoff if invalid/transient)
         S->>S: enforce requiresReview = rules
         S->>D: INSERT insight
         S-->>A: {insight, cached:false}

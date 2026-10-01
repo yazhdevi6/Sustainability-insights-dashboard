@@ -11,7 +11,10 @@ import { LlmError, type InsightProvider, type LlmPrompt } from "./providers/type
 const provider: InsightProvider =
   llmMode === "gemini" ? createGeminiProvider(env.GEMINI_API_KEY!, env.GEMINI_MODEL, env.LLM_TIMEOUT_MS) : createMockProvider();
 
-const MAX_ATTEMPTS = 2;
+// Gemini occasionally returns transient 5xx ("model overloaded"), so retry with a short backoff.
+const MAX_ATTEMPTS = 3;
+const RETRY_DELAYS_MS = [1000, 2000];
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export function getLlmInfo() {
   return { provider: provider.name, model: provider.model, promptVersion: PROMPT_VERSION };
@@ -19,7 +22,7 @@ export function getLlmInfo() {
 
 /** Parses and validates raw LLM text. Tolerates code fences, rejects anything off-schema. */
 function parseOutput(raw: string): InsightOutput {
-  const cleaned = raw.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "");
+  const cleaned = raw.trim().replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
   let json: unknown;
   try {
     json = JSON.parse(cleaned);
@@ -34,7 +37,7 @@ function parseOutput(raw: string): InsightOutput {
   return result.data;
 }
 
-/** Calls the provider, retrying once on malformed output or transient upstream failure. */
+/** Calls the provider, retrying (with backoff) on malformed output or transient upstream failure. */
 async function generateWithRetry(prompt: LlmPrompt): Promise<InsightOutput> {
   let lastError: unknown;
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
@@ -44,7 +47,9 @@ async function generateWithRetry(prompt: LlmPrompt): Promise<InsightOutput> {
       lastError = err;
       const retryable = err instanceof LlmError && (err.kind === "invalid_response" || err.kind === "upstream");
       if (!retryable || attempt === MAX_ATTEMPTS) break;
-      console.warn(`[llm] attempt ${attempt} failed (${(err as LlmError).message}); retrying`);
+      const delay = RETRY_DELAYS_MS[attempt - 1] ?? 2000;
+      console.warn(`[llm] attempt ${attempt} failed (${(err as LlmError).message}); retrying in ${delay}ms`);
+      await sleep(delay);
     }
   }
   throw lastError;

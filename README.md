@@ -21,6 +21,10 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the architecture diagram (M
 
 ![Supplier detail with AI insight](docs/screenshots/supplier-insight.png)
 
+**A supplier with good performance, for comparison**: for Nordic Pack Solutions the same prompt produces a low-risk, positive assessment, which shows the insight follows the data rather than always flagging problems.
+
+![Healthy supplier insight](docs/screenshots/healthy-supplier-insight.png)
+
 ## Features
 
 - **Dashboard**: total suppliers, total products, total emissions (with change against the previous quarter) and suppliers requiring review. Charts show the emissions trend, review-status breakdown, emissions by supplier (click a bar to open that supplier) and emissions by sector. A supplier table can be searched and filtered.

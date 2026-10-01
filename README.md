@@ -11,6 +11,16 @@ A full-stack prototype that turns supplier sustainability data (emissions, energ
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the architecture diagram (Mermaid).
 
+## Screenshots
+
+**Dashboard**: KPIs, emissions trend, review status, emissions by supplier and sector, and the supplier table.
+
+![Dashboard](docs/screenshots/dashboard.png)
+
+**Supplier detail**: metrics compared with the previous quarter, review-policy flags, and an insight generated live by Gemini (`gemini-2.5-flash`).
+
+![Supplier detail with AI insight](docs/screenshots/supplier-insight.png)
+
 ## Features
 
 - **Dashboard**: total suppliers, total products, total emissions (with change against the previous quarter) and suppliers requiring review. Charts show the emissions trend, review-status breakdown, emissions by supplier (click a bar to open that supplier) and emissions by sector. A supplier table can be searched and filtered.

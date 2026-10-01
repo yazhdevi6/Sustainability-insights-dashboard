@@ -1,8 +1,9 @@
 import { env, llmMode } from "./config/env";
-import { createApp } from "./app";
+import app from "./app";
 import { prisma } from "./lib/prisma";
 
-const server = createApp().listen(env.PORT, () => {
+// Local development entrypoint. On Vercel, src/app.ts is used directly.
+const server = app.listen(env.PORT, () => {
   console.log(`API listening on http://localhost:${env.PORT}`);
   console.log(
     llmMode === "gemini"

@@ -1,0 +1,86 @@
+// Prisma schema for the Sustainability Insights Dashboard.
+// Run `npm run db:migrate` to apply, `npm run db:seed` to load the sample dataset.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Supplier {
+  id             Int             @id @default(autoincrement())
+  name           String          @unique
+  country        String
+  sector         String
+  contactEmail   String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  products       Product[]
+  certifications Certification[]
+  metrics        MetricPeriod[]
+  insights       Insight[]
+
+  @@index([sector])
+}
+
+model Product {
+  id         Int      @id @default(autoincrement())
+  name       String
+  category   String
+  supplierId Int
+  supplier   Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  @@index([supplierId])
+}
+
+model Certification {
+  id         Int       @id @default(autoincrement())
+  name       String
+  issuer     String
+  issuedOn   DateTime  @db.Date
+  expiresOn  DateTime? @db.Date
+  supplierId Int
+  supplier   Supplier  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  @@index([supplierId])
+}
+
+/// One reporting period (quarter) of sustainability metrics for a supplier.
+model MetricPeriod {
+  id               Int      @id @default(autoincrement())
+  supplierId       Int
+  period           String // e.g. "2026-Q2"
+  periodStart      DateTime @db.Date
+  emissionsTco2e   Float // tonnes CO2-equivalent
+  energyMwh        Float
+  waterLitres      Float
+  recycledPct      Float // % of input material that is recycled
+  wasteRecoveryPct Float // % of waste recovered / diverted from landfill
+  supplier         Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  @@unique([supplierId, period])
+  @@index([supplierId, periodStart])
+}
+
+/// AI-generated insight. Cached per supplier and keyed by a hash of the context
+/// sent to the LLM, so an unchanged supplier does not trigger a new LLM call.
+model Insight {
+  id              Int      @id @default(autoincrement())
+  supplierId      Int
+  summary         String
+  riskLevel       String // "low" | "medium" | "high"
+  requiresReview  Boolean
+  keyFindings     Json
+  recommendations Json
+  provider        String // "gemini" | "mock"
+  model           String
+  contextHash     String
+  latencyMs       Int
+  createdAt       DateTime @default(now())
+  supplier        Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  @@index([supplierId, createdAt])
+}

@@ -1,0 +1,302 @@
+{
+  "description": "Sample sustainability dataset: 15 suppliers, 4 quarterly reporting periods each (2025-Q3 to 2026-Q2). Figures are fictional and chosen to exercise the review rules (emissions spikes, low recycled content, weak waste recovery, missing/expired certifications).",
+  "periods": [
+    { "period": "2025-Q3", "periodStart": "2025-07-01" },
+    { "period": "2025-Q4", "periodStart": "2025-10-01" },
+    { "period": "2026-Q1", "periodStart": "2026-01-01" },
+    { "period": "2026-Q2", "periodStart": "2026-04-01" }
+  ],
+  "suppliers": [
+    {
+      "name": "ABC Textiles",
+      "country": "India",
+      "sector": "Textiles",
+      "contactEmail": "sustainability@abctextiles.example",
+      "certifications": [
+        { "name": "GOTS", "issuer": "Global Organic Textile Standard", "issuedOn": "2025-02-01", "expiresOn": "2027-01-31" }
+      ],
+      "products": [
+        { "name": "Cotton jersey fabric", "category": "Fabric" },
+        { "name": "Dyed denim roll", "category": "Fabric" },
+        { "name": "Polyester blend yarn", "category": "Yarn" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 880, "energyMwh": 2050, "waterLitres": 1650000, "recycledPct": 21, "wasteRecoveryPct": 60 },
+        { "period": "2025-Q4", "emissionsTco2e": 910, "energyMwh": 2120, "waterLitres": 1700000, "recycledPct": 20, "wasteRecoveryPct": 61 },
+        { "period": "2026-Q1", "emissionsTco2e": 950, "energyMwh": 2180, "waterLitres": 1720000, "recycledPct": 19, "wasteRecoveryPct": 63 },
+        { "period": "2026-Q2", "emissionsTco2e": 1250, "energyMwh": 2400, "waterLitres": 1800000, "recycledPct": 18, "wasteRecoveryPct": 62 }
+      ]
+    },
+    {
+      "name": "Nordic Pack Solutions",
+      "country": "Sweden",
+      "sector": "Packaging",
+      "contactEmail": "esg@nordicpack.example",
+      "certifications": [
+        { "name": "FSC Chain of Custody", "issuer": "Forest Stewardship Council", "issuedOn": "2024-05-01", "expiresOn": "2029-04-30" },
+        { "name": "ISO 14001", "issuer": "Bureau Veritas", "issuedOn": "2024-09-15", "expiresOn": "2027-09-14" }
+      ],
+      "products": [
+        { "name": "Corrugated shipping box", "category": "Packaging" },
+        { "name": "Moulded pulp insert", "category": "Packaging" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 420, "energyMwh": 1300, "waterLitres": 900000, "recycledPct": 58, "wasteRecoveryPct": 88 },
+        { "period": "2025-Q4", "emissionsTco2e": 405, "energyMwh": 1270, "waterLitres": 880000, "recycledPct": 60, "wasteRecoveryPct": 89 },
+        { "period": "2026-Q1", "emissionsTco2e": 390, "energyMwh": 1240, "waterLitres": 860000, "recycledPct": 62, "wasteRecoveryPct": 90 },
+        { "period": "2026-Q2", "emissionsTco2e": 372, "energyMwh": 1210, "waterLitres": 845000, "recycledPct": 64, "wasteRecoveryPct": 91 }
+      ]
+    },
+    {
+      "name": "Meridian Steel Works",
+      "country": "Germany",
+      "sector": "Metals",
+      "contactEmail": "umwelt@meridiansteel.example",
+      "certifications": [
+        { "name": "ISO 14001", "issuer": "TÜV SÜD", "issuedOn": "2025-01-10", "expiresOn": "2028-01-09" },
+        { "name": "ResponsibleSteel", "issuer": "ResponsibleSteel", "issuedOn": "2025-06-01", "expiresOn": "2028-05-31" }
+      ],
+      "products": [
+        { "name": "Hot-rolled steel coil", "category": "Metal" },
+        { "name": "Galvanised sheet", "category": "Metal" },
+        { "name": "Steel fasteners", "category": "Components" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 5100, "energyMwh": 9800, "waterLitres": 5200000, "recycledPct": 35, "wasteRecoveryPct": 76 },
+        { "period": "2025-Q4", "emissionsTco2e": 5090, "energyMwh": 9760, "waterLitres": 5150000, "recycledPct": 36, "wasteRecoveryPct": 77 },
+        { "period": "2026-Q1", "emissionsTco2e": 4900, "energyMwh": 9550, "waterLitres": 5100000, "recycledPct": 37, "wasteRecoveryPct": 78 },
+        { "period": "2026-Q2", "emissionsTco2e": 4800, "energyMwh": 9400, "waterLitres": 5050000, "recycledPct": 38, "wasteRecoveryPct": 78 }
+      ]
+    },
+    {
+      "name": "Sunrise Plastics Co.",
+      "country": "Vietnam",
+      "sector": "Plastics",
+      "contactEmail": "info@sunriseplastics.example",
+      "certifications": [],
+      "products": [
+        { "name": "PET bottle preform", "category": "Plastic" },
+        { "name": "HDPE container", "category": "Plastic" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 1480, "energyMwh": 2900, "waterLitres": 1100000, "recycledPct": 14, "wasteRecoveryPct": 47 },
+        { "period": "2025-Q4", "emissionsTco2e": 1510, "energyMwh": 2950, "waterLitres": 1120000, "recycledPct": 13, "wasteRecoveryPct": 46 },
+        { "period": "2026-Q1", "emissionsTco2e": 1540, "energyMwh": 3000, "waterLitres": 1150000, "recycledPct": 12, "wasteRecoveryPct": 45 },
+        { "period": "2026-Q2", "emissionsTco2e": 1600, "energyMwh": 3080, "waterLitres": 1170000, "recycledPct": 12, "wasteRecoveryPct": 45 }
+      ]
+    },
+    {
+      "name": "GreenLeaf Organics",
+      "country": "Kenya",
+      "sector": "Agriculture",
+      "contactEmail": "farm@greenleaf.example",
+      "certifications": [
+        { "name": "Rainforest Alliance", "issuer": "Rainforest Alliance", "issuedOn": "2025-03-01", "expiresOn": "2028-02-28" }
+      ],
+      "products": [
+        { "name": "Organic tea leaves", "category": "Food" },
+        { "name": "Dried herbs", "category": "Food" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 190, "energyMwh": 310, "waterLitres": 2600000, "recycledPct": 28, "wasteRecoveryPct": 83 },
+        { "period": "2025-Q4", "emissionsTco2e": 185, "energyMwh": 300, "waterLitres": 2550000, "recycledPct": 29, "wasteRecoveryPct": 84 },
+        { "period": "2026-Q1", "emissionsTco2e": 182, "energyMwh": 295, "waterLitres": 2500000, "recycledPct": 30, "wasteRecoveryPct": 85 },
+        { "period": "2026-Q2", "emissionsTco2e": 178, "energyMwh": 290, "waterLitres": 2450000, "recycledPct": 30, "wasteRecoveryPct": 85 }
+      ]
+    },
+    {
+      "name": "Pacific Electronics Ltd",
+      "country": "Taiwan",
+      "sector": "Electronics",
+      "contactEmail": "csr@pacificelec.example",
+      "certifications": [
+        { "name": "ISO 14001", "issuer": "SGS", "issuedOn": "2023-07-01", "expiresOn": "2026-06-30" }
+      ],
+      "products": [
+        { "name": "Printed circuit board", "category": "Components" },
+        { "name": "Power adapter", "category": "Electronics" },
+        { "name": "Lithium battery pack", "category": "Electronics" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 1900, "energyMwh": 4100, "waterLitres": 3100000, "recycledPct": 23, "wasteRecoveryPct": 71 },
+        { "period": "2025-Q4", "emissionsTco2e": 1950, "energyMwh": 4180, "waterLitres": 3150000, "recycledPct": 23, "wasteRecoveryPct": 70 },
+        { "period": "2026-Q1", "emissionsTco2e": 2000, "energyMwh": 4250, "waterLitres": 3200000, "recycledPct": 22, "wasteRecoveryPct": 70 },
+        { "period": "2026-Q2", "emissionsTco2e": 2200, "energyMwh": 4500, "waterLitres": 3300000, "recycledPct": 22, "wasteRecoveryPct": 69 }
+      ]
+    },
+    {
+      "name": "Andes Copper Mining",
+      "country": "Chile",
+      "sector": "Mining",
+      "contactEmail": "sostenibilidad@andescopper.example",
+      "certifications": [
+        { "name": "Copper Mark", "issuer": "The Copper Mark", "issuedOn": "2025-04-01", "expiresOn": "2028-03-31" }
+      ],
+      "products": [
+        { "name": "Copper cathode", "category": "Metal" },
+        { "name": "Copper concentrate", "category": "Raw material" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 4700, "energyMwh": 8800, "waterLitres": 9500000, "recycledPct": 9, "wasteRecoveryPct": 55 },
+        { "period": "2025-Q4", "emissionsTco2e": 4850, "energyMwh": 9000, "waterLitres": 9700000, "recycledPct": 8, "wasteRecoveryPct": 54 },
+        { "period": "2026-Q1", "emissionsTco2e": 5000, "energyMwh": 9200, "waterLitres": 9900000, "recycledPct": 8, "wasteRecoveryPct": 53 },
+        { "period": "2026-Q2", "emissionsTco2e": 6200, "energyMwh": 10600, "waterLitres": 11200000, "recycledPct": 8, "wasteRecoveryPct": 52 }
+      ]
+    },
+    {
+      "name": "EcoFiber Mills",
+      "country": "Portugal",
+      "sector": "Textiles",
+      "contactEmail": "hello@ecofiber.example",
+      "certifications": [
+        { "name": "Global Recycled Standard", "issuer": "Textile Exchange", "issuedOn": "2025-05-01", "expiresOn": "2027-04-30" },
+        { "name": "OEKO-TEX Standard 100", "issuer": "OEKO-TEX", "issuedOn": "2025-08-01", "expiresOn": "2026-12-31" }
+      ],
+      "products": [
+        { "name": "Recycled polyester yarn", "category": "Yarn" },
+        { "name": "Recycled cotton fabric", "category": "Fabric" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 540, "energyMwh": 1500, "waterLitres": 1200000, "recycledPct": 50, "wasteRecoveryPct": 85 },
+        { "period": "2025-Q4", "emissionsTco2e": 525, "energyMwh": 1480, "waterLitres": 1150000, "recycledPct": 52, "wasteRecoveryPct": 86 },
+        { "period": "2026-Q1", "emissionsTco2e": 510, "energyMwh": 1450, "waterLitres": 1100000, "recycledPct": 54, "wasteRecoveryPct": 87 },
+        { "period": "2026-Q2", "emissionsTco2e": 498, "energyMwh": 1420, "waterLitres": 1060000, "recycledPct": 55, "wasteRecoveryPct": 88 }
+      ]
+    },
+    {
+      "name": "BlueWave Chemicals",
+      "country": "Netherlands",
+      "sector": "Chemicals",
+      "contactEmail": "hse@bluewavechem.example",
+      "certifications": [
+        { "name": "ISO 14001", "issuer": "DNV", "issuedOn": "2024-11-01", "expiresOn": "2027-10-31" },
+        { "name": "Responsible Care", "issuer": "Cefic", "issuedOn": "2025-01-15", "expiresOn": "2028-01-14" }
+      ],
+      "products": [
+        { "name": "Textile dye concentrate", "category": "Chemicals" },
+        { "name": "Industrial solvent", "category": "Chemicals" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 3400, "energyMwh": 6200, "waterLitres": 4200000, "recycledPct": 14, "wasteRecoveryPct": 70 },
+        { "period": "2025-Q4", "emissionsTco2e": 3300, "energyMwh": 6100, "waterLitres": 4150000, "recycledPct": 14, "wasteRecoveryPct": 71 },
+        { "period": "2026-Q1", "emissionsTco2e": 3200, "energyMwh": 6000, "waterLitres": 4100000, "recycledPct": 15, "wasteRecoveryPct": 72 },
+        { "period": "2026-Q2", "emissionsTco2e": 3100, "energyMwh": 5900, "waterLitres": 4050000, "recycledPct": 15, "wasteRecoveryPct": 72 }
+      ]
+    },
+    {
+      "name": "Atlas Logistics",
+      "country": "United Arab Emirates",
+      "sector": "Logistics",
+      "contactEmail": "ops@atlaslogistics.example",
+      "certifications": [
+        { "name": "ISO 50001", "issuer": "Intertek", "issuedOn": "2025-02-20", "expiresOn": "2028-02-19" }
+      ],
+      "products": [
+        { "name": "Ocean freight service", "category": "Service" },
+        { "name": "Warehousing service", "category": "Service" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 1950, "energyMwh": 3600, "waterLitres": 400000, "recycledPct": 24, "wasteRecoveryPct": 50 },
+        { "period": "2025-Q4", "emissionsTco2e": 1980, "energyMwh": 3650, "waterLitres": 410000, "recycledPct": 25, "wasteRecoveryPct": 49 },
+        { "period": "2026-Q1", "emissionsTco2e": 2000, "energyMwh": 3700, "waterLitres": 415000, "recycledPct": 25, "wasteRecoveryPct": 48 },
+        { "period": "2026-Q2", "emissionsTco2e": 2100, "energyMwh": 3820, "waterLitres": 420000, "recycledPct": 25, "wasteRecoveryPct": 48 }
+      ]
+    },
+    {
+      "name": "Horizon Glassworks",
+      "country": "Czechia",
+      "sector": "Glass",
+      "contactEmail": "info@horizonglass.example",
+      "certifications": [
+        { "name": "ISO 14001", "issuer": "Bureau Veritas", "issuedOn": "2025-03-01", "expiresOn": "2028-02-28" }
+      ],
+      "products": [
+        { "name": "Glass bottle", "category": "Packaging" },
+        { "name": "Glass jar", "category": "Packaging" },
+        { "name": "Float glass panel", "category": "Construction" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 2700, "energyMwh": 7200, "waterLitres": 800000, "recycledPct": 42, "wasteRecoveryPct": 79 },
+        { "period": "2025-Q4", "emissionsTco2e": 2680, "energyMwh": 7150, "waterLitres": 790000, "recycledPct": 43, "wasteRecoveryPct": 80 },
+        { "period": "2026-Q1", "emissionsTco2e": 2650, "energyMwh": 7100, "waterLitres": 780000, "recycledPct": 44, "wasteRecoveryPct": 80 },
+        { "period": "2026-Q2", "emissionsTco2e": 2620, "energyMwh": 7050, "waterLitres": 775000, "recycledPct": 45, "wasteRecoveryPct": 81 }
+      ]
+    },
+    {
+      "name": "Summit Paper & Pulp",
+      "country": "Canada",
+      "sector": "Paper",
+      "contactEmail": "sustainability@summitpaper.example",
+      "certifications": [
+        { "name": "FSC Chain of Custody", "issuer": "Forest Stewardship Council", "issuedOn": "2024-08-01", "expiresOn": "2029-07-31" }
+      ],
+      "products": [
+        { "name": "Kraft paper roll", "category": "Paper" },
+        { "name": "Recycled cardboard sheet", "category": "Paper" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 1350, "energyMwh": 4400, "waterLitres": 6800000, "recycledPct": 66, "wasteRecoveryPct": 91 },
+        { "period": "2025-Q4", "emissionsTco2e": 1300, "energyMwh": 4300, "waterLitres": 6600000, "recycledPct": 68, "wasteRecoveryPct": 92 },
+        { "period": "2026-Q1", "emissionsTco2e": 1260, "energyMwh": 4200, "waterLitres": 6450000, "recycledPct": 69, "wasteRecoveryPct": 92 },
+        { "period": "2026-Q2", "emissionsTco2e": 1220, "energyMwh": 4120, "waterLitres": 6300000, "recycledPct": 70, "wasteRecoveryPct": 93 }
+      ]
+    },
+    {
+      "name": "Lotus Leather Tannery",
+      "country": "Bangladesh",
+      "sector": "Leather",
+      "contactEmail": "contact@lotusleather.example",
+      "certifications": [],
+      "products": [
+        { "name": "Finished cowhide leather", "category": "Leather" },
+        { "name": "Leather trims", "category": "Components" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 780, "energyMwh": 1250, "waterLitres": 3900000, "recycledPct": 6, "wasteRecoveryPct": 42 },
+        { "period": "2025-Q4", "emissionsTco2e": 800, "energyMwh": 1280, "waterLitres": 4000000, "recycledPct": 5, "wasteRecoveryPct": 41 },
+        { "period": "2026-Q1", "emissionsTco2e": 820, "energyMwh": 1300, "waterLitres": 4100000, "recycledPct": 5, "wasteRecoveryPct": 40 },
+        { "period": "2026-Q2", "emissionsTco2e": 965, "energyMwh": 1420, "waterLitres": 4450000, "recycledPct": 5, "wasteRecoveryPct": 40 }
+      ]
+    },
+    {
+      "name": "Evergreen Timber",
+      "country": "Brazil",
+      "sector": "Timber",
+      "contactEmail": "vendas@evergreentimber.example",
+      "certifications": [
+        { "name": "FSC Forest Management", "issuer": "Forest Stewardship Council", "issuedOn": "2021-04-01", "expiresOn": "2026-03-31" }
+      ],
+      "products": [
+        { "name": "Hardwood planks", "category": "Timber" },
+        { "name": "Plywood sheet", "category": "Construction" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 640, "energyMwh": 980, "waterLitres": 700000, "recycledPct": 26, "wasteRecoveryPct": 74 },
+        { "period": "2025-Q4", "emissionsTco2e": 650, "energyMwh": 990, "waterLitres": 705000, "recycledPct": 26, "wasteRecoveryPct": 74 },
+        { "period": "2026-Q1", "emissionsTco2e": 655, "energyMwh": 995, "waterLitres": 710000, "recycledPct": 25, "wasteRecoveryPct": 73 },
+        { "period": "2026-Q2", "emissionsTco2e": 660, "energyMwh": 1000, "waterLitres": 715000, "recycledPct": 25, "wasteRecoveryPct": 73 }
+      ]
+    },
+    {
+      "name": "Solaris Components",
+      "country": "Spain",
+      "sector": "Electronics",
+      "contactEmail": "esg@solariscomp.example",
+      "certifications": [
+        { "name": "ISO 14001", "issuer": "AENOR", "issuedOn": "2025-06-01", "expiresOn": "2028-05-31" },
+        { "name": "ISO 50001", "issuer": "AENOR", "issuedOn": "2025-06-01", "expiresOn": "2028-05-31" }
+      ],
+      "products": [
+        { "name": "Solar inverter", "category": "Electronics" },
+        { "name": "Aluminium mounting rail", "category": "Components" },
+        { "name": "Junction box", "category": "Components" }
+      ],
+      "metrics": [
+        { "period": "2025-Q3", "emissionsTco2e": 610, "energyMwh": 1900, "waterLitres": 520000, "recycledPct": 36, "wasteRecoveryPct": 82 },
+        { "period": "2025-Q4", "emissionsTco2e": 575, "energyMwh": 1850, "waterLitres": 510000, "recycledPct": 38, "wasteRecoveryPct": 84 },
+        { "period": "2026-Q1", "emissionsTco2e": 540, "energyMwh": 1800, "waterLitres": 500000, "recycledPct": 40, "wasteRecoveryPct": 85 },
+        { "period": "2026-Q2", "emissionsTco2e": 505, "energyMwh": 1760, "waterLitres": 490000, "recycledPct": 41, "wasteRecoveryPct": 86 }
+      ]
+    }
+  ]
+}
